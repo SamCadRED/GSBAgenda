@@ -2,6 +2,7 @@
 session_start();
 include_once "../connection/ddb_conn.php";
 
+// Récupération des valeurs du formaulaire éxécuter dans la page App.php
 $event_title = $_POST['title'];
 $event_date = $_POST['date'];
 $event_time = $_POST['time'];
@@ -12,6 +13,7 @@ $event_description = $_POST['description'];
 $id_event = $_POST['id_event'];
 $id_user = $_SESSION['idUser'];
 
+// Verfification de l'identifiant utilisateur stocké en session
 $sql = 'SELECT `idUser` FROM Events WHERE idEvent = :id_event;';
 $req = $conn->prepare($sql);
 
@@ -24,6 +26,7 @@ try {
     $result = false;
 }
 
+// Si la requête précédente retourne un résultat valide, on met a jour les informations en base avec les odnnées du formulaire
 if ($result) {
     $sql = 'UPDATE Events
             SET intitule = :titre, 
