@@ -1,11 +1,11 @@
+<!-- Page de préparation de composant -->
 <?php
 include_once "../connection/ddb_conn.php";
 date_default_timezone_set('Europe/Paris');
 
+// récupération des données stockées en base 
 $id_user = $_SESSION['idUser'];
 $all_lines = [];
-//echo $all_lines[$index]['idEvent']);
-
 $sql = 'SELECT * FROM Events WHERE `idUser` = :id ORDER by date_event ASC;';
 $req = $conn->prepare($sql);
 try {
@@ -16,11 +16,11 @@ try {
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }
-
 $id_event = $all_lines[$index]['idEvent'];
 
-
+// fonction qui génère le code html des post-it utilisés dans la page App.php
 function get_event_case($all_lines, $index) {
+    // Variables récupérées en base 
     $color = $all_lines[$index]['couleur_event'];
     $id_event = $all_lines[$index]['idEvent'];
     $title_event = ucfirst($all_lines[$index]['intitule']);
@@ -28,16 +28,18 @@ function get_event_case($all_lines, $index) {
     $time_event = $all_lines[$index]['heure_event'];
     $description_event = ucfirst($all_lines[$index]['description_event']);
 
+    // variable de style
     $text_color= 'black';
     $order = 1;
     $title_event_class='intitule';
 
+    // Gestion des formats de date 
     $date = date_create_from_format('Y-m-d',$date_event);
     $date_event = $date->format('d/m/Y');
-
     $date_test = mktime(0,0,0,$date->format('n'),$date->format('j'),$date->format('Y'));
     $today_date = mktime(0, 0, 0, date('n'), date('j'), date('Y'));
 
+    // Gestion du style des évenements passés
     if ($date_test < $today_date) {
         $color = '#b3b3b3';
         $text_color = '#666666';
@@ -47,6 +49,7 @@ function get_event_case($all_lines, $index) {
         $show_edit = "0";
     }
 
+    // Code HTML préparé pour chaque évenement
     $event = "<div class='event_case' 
                 id='".$id_event."'
                 style='background-color:".$color."; 
@@ -80,7 +83,8 @@ function get_event_case($all_lines, $index) {
             </div>";
     echo $event;
 }
-//print_r (sizeof($all_lines));
+
+// Fonction permettant d'afficher tout les évenements dans la page App.php
 function get_all_events($all_lines) {
     $i = 0;
     while ($i < sizeof($all_lines)) {
