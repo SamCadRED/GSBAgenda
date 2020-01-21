@@ -226,7 +226,7 @@ form input {
   font-size: 150%;
   font-weight: bold;
   padding: 2px;
-  word-wrap: break;
+  word-wrap: break-word;
   margin-top: 0px;
 }
 .delete_cross {

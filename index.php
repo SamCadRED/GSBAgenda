@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,8 +16,8 @@
                 <div class="connection">
                     <h2 style="color: white">Se connecter</h2>
                     <form id="connection_form" method="POST" action="source/connection_form.php" autocomplete="off"> 
-                        <input class="form_element" name="id" type="text" placeholder="Identifiant" required="true"/>
-                        <input class="form_element" name="pwd" type="password" placeholder="Mot de Passe" required="true"/>
+                        <input class="form_element" name="id" type="text" placeholder="Identifiant" required/>
+                        <input class="form_element" name="pwd" type="password" placeholder="Mot de Passe" required/>
                         <input class="form_button" id="login_button" type="submit" value="Se connecter" />
                     </form>
                 </div>
@@ -30,11 +30,11 @@
                     <h2 style="color: white">S'inscrire</h2>
                     <div id="subscribe_message"></div>
                     <form id="subcsribe_form" action="source/subscribe_form.php" method="POST" autocomplete="off">
-                        <input class="form_element" name="surname" id="surname" type="text" placeholder="Prénom" required="true"/>
-                        <input class="form_element" name="name" id="name" type="text" placeholder="Nom" required="true"/>
-                        <input class="form_element" name="id" id="id" type="text" placeholder="Identifiant" required="true"/>
-                        <input class="form_element" name="pwd" id="pwd" type="password" placeholder="Mot de Passe" required="true"/>
-                        <input class="form_element" name="pwdconf" id="pwdconf" type="password" placeholder="Confirmation" required="true"/>
+                        <input class="form_element" name="surname" id="surname" type="text" placeholder="Prénom" required/>
+                        <input class="form_element" name="name" id="name" type="text" placeholder="Nom" required/>
+                        <input class="form_element" name="id" id="id" type="text" placeholder="Identifiant" required/>
+                        <input class="form_element" name="pwd" id="pwd" type="password" placeholder="Mot de Passe" required/>
+                        <input class="form_element" name="pwdconf" id="pwdconf" type="password" placeholder="Confirmation" required/>
                         <input class="form_button" id="subscribe_button" type="submit" value="S'inscrire"/>
                         <input class="cancel_button" type="reset" value="Effacer"/>
                     </form>
