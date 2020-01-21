@@ -1,7 +1,9 @@
 <?php
+// Récupération des informations de session initialisées dans la page index.php
 session_start();
 include_once "component.php";
 
+// Définition des variables utilisées dans l'application
 $today_date = date("D/M/Y");
 $id = $_SESSION['idUser'];
 
@@ -15,12 +17,15 @@ $id = $_SESSION['idUser'];
         <title>Agenda GSB</title>
         <link rel="stylesheet" href="../style/main.css">
         <link rel="icon" type="image/png" href="/source/images/g_logo.png" />
+        <!-- Lien d'import de la librairie JQuery Ajax -->
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     </head>
     <script>
 
     </script>
     <body class='body'>
+
+        <!-- Header de l'application  -->
         <div class="header">
 
             <div id="left_header">
@@ -35,24 +40,20 @@ $id = $_SESSION['idUser'];
             </div>
 
             <div class="right_header">
-                <!-- <a id="add_event_button" onclick="showFormMenu()">
-                    <img id="plus_sign" src="../images/cross2.png" alt="Ajouter">
-                </a> -->
-
                 <a id="settings" href="">
                     <img id="settings_img" src="../images/settings_logo.png" alt="Paramètres">
                 </a>
-
-                <!-- <a id="profile" href="">
-                    <img id="profile_img" src="../images/profile_icon.png" alt="Mon Profil">
-                </a> -->
             </div>
 
         </div>
 
+        <!-- Séparateur header/reste de l'application -->
         <hr style="margin-left:-8px;margin-right:-8px"/>
+
         <div class="whole_app">
             <div id="add_event_div">
+
+                <!-- Formulaire d'ajout et/ou modification des évenements (post-it) -->
                 <form id="add_event_form" action="add_event.php" method="POST" autocomplete="off">
                     <h4 id="form_title" >Ajouter un événement</h4>
                     <input class="form_element" id="title" name="title" type="text" placeholder="Titre" required="true"/>
@@ -73,23 +74,27 @@ $id = $_SESSION['idUser'];
 
                 </form>
             </div>
+
+            <!-- Script Ajax d'ajout et/ou modification d'évenements -->
             <script>
                 $("#add_event_form").submit(function(e) {
-                    e.preventDefault(); // avoid to execute the actual submit of the form.
+                    e.preventDefault(); // permet de bloquer le comportement par défaut du formulaire
                     var form = $(this);
                     var url = form.attr('action');
                     $.ajax({
                         type: "POST",
                         url: url,
-                        data: form.serialize(), // serializes the form's elements.
+                        data: form.serialize(), // Serialisation des données du formulaire
                         success: function(data)
                         {
-                            // alert(data); // show response from the php script.
+                            // alert(data); 
                             location.reload();
                         }
                         });
                     });
             </script>
+
+            <!-- Conteneur des évenements générer dans components.php -->
             <div class="event_container">
                 <?php $index = 0; get_all_events($all_lines) ?>
             </div>
