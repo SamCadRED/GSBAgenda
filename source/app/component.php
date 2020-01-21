@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once "../connection/ddb_conn.php";
 date_default_timezone_set('Europe/Paris');
 
