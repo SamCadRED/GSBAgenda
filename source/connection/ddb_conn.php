@@ -1,10 +1,12 @@
 <?php
+//Fichier de parametrage de la connection à la base de données 
+
     $host = "localhost:8889";
     $db = "gsb_agenda";
     $username = "root";
-    $password = 'root';
+    $password = "root";
 
-    $dsn = "mysql:host=localhost:8889;dbname=gsb_agenda";
+    $dsn = "mysql:host=".$host.";dbname=".$db;
     try {
         $conn = new PDO($dsn, $username, $password);
     } catch (Exception $e) {

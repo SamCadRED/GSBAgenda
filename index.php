@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Point d'entré de l'applicaiton GSB Agenda -->
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
@@ -11,8 +12,12 @@
     </head>
     <body class="body">
         <img class='logo_gsb' src='source/images/logo-gsb.png' alt='GSB_LOGO'>
-        <div class="master_window">
+
+        <!-- Rectangle de connection et d'inscription -->
+        <div class="master_window"> 
             <div class="form_window">
+
+                <!-- Formulaire de connection -->
                 <div class="connection">
                     <h2 style="color: white">Se connecter</h2>
                     <form id="connection_form" method="POST" action="source/connection_form.php" autocomplete="off"> 
@@ -21,11 +26,8 @@
                         <input class="form_button" id="login_button" type="submit" value="Se connecter" />
                     </form>
                 </div>
-                
-                <!-- <div class="separation_line">
-                    <hr/>
-                </div> -->
 
+                <!-- Formulaire d'inscription -->
                 <div class="subscribe">
                     <h2 style="color: white">S'inscrire</h2>
                     <div id="subscribe_message"></div>
@@ -39,6 +41,8 @@
                         <input class="cancel_button" type="reset" value="Effacer"/>
                     </form>
                 </div>
+
+                <!-- Script Ajax de gestion de l'inscription -->
                 <script>
                     $("#subcsribe_form").submit(function(e) {
                         e.preventDefault(); 
