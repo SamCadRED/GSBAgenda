@@ -1,5 +1,6 @@
 <?php
 //Fichier de parametrage de la connection à la base de données 
+// commit a marcher sur deboan ?
 
     $host = "localhost";
     $db = "gsb_agenda";
