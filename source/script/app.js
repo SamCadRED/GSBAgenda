@@ -1,5 +1,4 @@
-// Modifier le formulaire d'ajout pour qu'il puisse modifier les évenements 
-
+// Fonction permettant de gérer la modification dynamique des évenements
 var clicked = false;
 function editEvent(idEvent) {
     var eventCase = document.getElementById(idEvent);
@@ -29,6 +28,7 @@ function editEvent(idEvent) {
     }
 }
 
+// bouton d'annulation permettant de gérer les ajout/changements de valeurs des évenements
 var cancelButton =  document.getElementById("#cancel_button");
 cancelButton.onclick = resetForm();
 function resetForm() {
@@ -48,6 +48,7 @@ function resetForm() {
     document.getElementById("add_event_form").action = "add_event.php";
 }
 
+// Foncion permettant de parser la date du format générer dans le ode HTML pour qu'il soit valide avec le format SQL
 function parseDate(date) {
     var dateParsed = date.split("/");
     var day = dateParsed[0];
