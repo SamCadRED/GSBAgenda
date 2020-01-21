@@ -1,10 +1,10 @@
 <?php
 //Fichier de parametrage de la connection à la base de données 
 
-    $host = "localhost:8889";
+    $host = "localhost";
     $db = "gsb_agenda";
-    $username = "root";
-    $password = "root";
+    $username = "gsba";
+    $password = "Samuman-43";
 
     $dsn = "mysql:host=".$host.";dbname=".$db;
     try {
