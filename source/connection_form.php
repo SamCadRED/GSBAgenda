@@ -15,7 +15,6 @@ try {
     $pwddb = $fetchArray['mdpasse'];
     $surnamedb = $fetchArray['prenom'];
     $namedb = $fetchArray['nom'];
-    echo $pwddb.$surnamedb.$namedb;
     if (password_verify($pwd, $pwddb)) { 
         $_SESSION['idUser'] = $id;
         $_SESSION['surname'] = $surnamedb;
