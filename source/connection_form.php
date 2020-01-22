@@ -22,6 +22,9 @@ try {
         $_SESSION['session_start'] = $start_time;
         header("location: app/app.php");
     } else {
+        var_dump("fetchArray : ".$fetchArray);
+        var_dump("mdp bd : ".$pwddb);
+        var_dump("mdp from : ".$pwd);
         ?>
         <!DOCTYPE html>
                 <html lang="en">
