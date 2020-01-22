@@ -1,7 +1,9 @@
+<!-- Script PHP permettant d'ajouter un évenement à la base de donnée -->
 <?php
 session_start();
 include_once "../connection/ddb_conn.php";
 
+// Récupération des données de l'évenement 
 $event_title = htmlentities($_POST['title']);
 $event_date = htmlentities($_POST['date']);
 $event_time = htmlentities($_POST['time']);
@@ -10,7 +12,7 @@ $event_color = htmlentities($_POST['color']);
 $event_description = htmlentities($_POST['description']);
 $id_user = $_SESSION['idUser'];
 
-if ($event_title && $event_date != null) {
+if ($event_title && $event_date != null) { // Condition si l'id user en session est valide 
     if ($id_user == null) {
         header("location: ../index.php");
     } else {
