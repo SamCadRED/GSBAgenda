@@ -6,7 +6,7 @@ $id = $_POST['id'];
 $pwd = $_POST['pwd'];
 $start_time = getdate();
 
-$sql = 'SELECT mdpasse, prenom, nom FROM user where `identifiant` LIKE :id;';
+$sql = 'SELECT mdpasse, prenom, nom FROM user WHERE `identifiant` LIKE :id;';
 $req = $conn->prepare($sql);
 
 try {
@@ -23,10 +23,10 @@ try {
         header("location: app/app.php");
     } else {
         var_dump($fetchArray);
-        echo $fetchArray;
+        echo "Resultat du PDO : ".$fetchArray;
         echo "<br>";
         var_dump($pwddb);
-        echo $pwddb;
+        echo "MDP Stocké en base : ".$pwddb;
         ?>
         <!DOCTYPE html>
                 <html lang="en">
