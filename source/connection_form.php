@@ -12,6 +12,10 @@ $req = $conn->prepare($sql);
 try {
     $req->execute(array('id' => $id));
     $fetchArray = $req->fetch(PDO::FETCH_ASSOC);
+    print_r($fetchArray);
+    exit();
+
+
     $pwddb = $fetchArray['mdpasse'];
     $surnamedb = $fetchArray['prenom'];
     $namedb = $fetchArray['nom'];
