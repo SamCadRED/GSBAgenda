@@ -6,7 +6,7 @@ $id = $_POST['id'];
 $pwd = $_POST['pwd'];
 $start_time = getdate();
 
-$sql = 'SELECT * FROM user';// WHERE `identifiant` LIKE :id;';
+$sql = 'SELECT * FROM User';// WHERE `identifiant` LIKE :id;';
 $req = $conn->prepare($sql);
 
 try {
