@@ -17,8 +17,8 @@ try {
     if ($id_db == false) {
         if ($name && $surname && $id && $pwd && $pwdconf != null) {
             if ($pwd === $pwdconf) {
-                // $pwdhash = password_hash($pwd, PASSWORD_DEFAULT);
-                $pwdhash = hash('sha256', $pwd);
+                $pwdhash = password_hash($pwd, PASSWORD_DEFAULT);
+                // $pwdhash = hash('sha256', $pwd);
                 $sql = 'INSERT INTO User (nom, prenom, identifiant, mdpasse) VALUES (:nom, :prenom, :id, :mdpasse);';
                 $req = $conn->prepare($sql);
                 try {
