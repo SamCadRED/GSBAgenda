@@ -1,5 +1,5 @@
 <?php
-//Fichier de parametrage de la connection à la base de données 
+//Fichier des paramêtres de connection à la base de données SQL
 
     $host = "localhost";
     $db = "gsb_agenda";
