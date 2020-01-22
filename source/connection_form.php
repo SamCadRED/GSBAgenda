@@ -1,8 +1,10 @@
+<!-- Script PHP de connection utilisateur à l'App -->
 <?php
 session_start();
 include_once "connection/ddb_conn.php";
 
-$id = $_POST['id'];
+// Récupération de l'identitifiant et Mot de passe du formulaire via POST
+$id = $_POST['id']; 
 $pwd = $_POST['pwd'];
 $start_time = getdate();
 
@@ -12,21 +14,17 @@ $req = $conn->prepare($sql);
 try {
     $req->execute(array('id' => $id));
     $fetchArray = $req->fetch(PDO::FETCH_ASSOC);
-    $pwddb = $fetchArray['mdpasse'];
-    $surnamedb = $fetchArray['prenom'];
+    $pwddb = $fetchArray['mdpasse']; // Mot de passe Hasher stocké en base
+    $surnamedb = $fetchArray['prenom']; 
     $namedb = $fetchArray['nom'];
-    if (password_verify($pwd, $pwddb)) { 
+    if (password_verify($pwd, $pwddb)) { // Fonction de verfification du mot de passe 
         $_SESSION['idUser'] = $id;
         $_SESSION['surname'] = $surnamedb;
         $_SESSION['name'] = $namedb;
         $_SESSION['session_start'] = $start_time;
-        header("location: app/app.php");
+        header("location: app/app.php"); // Redirection vers l'App si la connection réussie
     } else {
-        var_dump($fetchArray);
-        echo "Resultat du PDO : ".$fetchArray;
-        echo "<br>";
-        var_dump($pwddb);
-        echo "MDP Stocké en base : ".$pwddb;
+        // Message d'erreur si la connection échoue
         ?>
         <!DOCTYPE html>
                 <html lang="en">
