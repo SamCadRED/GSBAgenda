@@ -12,7 +12,7 @@ $req = $conn->prepare($sql);
 try {
     $req->execute(array('id' => $id));
     $fetchArray = $req->fetch(PDO::FETCH_ASSOC);
-    print_r($fetchArray);
+    var_dump($fetchArray);
     exit();
 
 
