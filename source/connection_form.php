@@ -6,11 +6,11 @@ $id = $_POST['id'];
 $pwd = $_POST['pwd'];
 $start_time = getdate();
 
-$sql = 'SELECT mdpasse, prenom, nom FROM user WHERE `identifiant` LIKE :id;';
+$sql = 'SELECT * FROM user';// WHERE `identifiant` LIKE :id;';
 $req = $conn->prepare($sql);
 
 try {
-    $req->execute(array('id' => $id));
+    $req->execute();//array('id' => $id));
     $fetchArray = $req->fetch(PDO::FETCH_ASSOC);
     var_dump($fetchArray);
     exit();
