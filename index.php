@@ -11,6 +11,8 @@
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     </head>
     <body class="body">
+
+        <h1>lalalala</h1>
         <img class='logo_gsb' src='source/images/logo-gsb.png' alt='GSB_LOGO'>
 
         <!-- Rectangle de connection et d'inscription -->
