@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <!-- Point d'entré de l'applicaiton GSB Agenda -->
+<!-- fsjvdi -->
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
