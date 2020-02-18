@@ -3,8 +3,8 @@
 
     $host = "localhost";
     $db = "gsb_agenda";
-    $username = "gsba";
-    $password = "Samuman-43";
+    $username = "";
+    $password = "";
 
     $dsn = "mysql:host=".$host.";dbname=".$db;
     try {
