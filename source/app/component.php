@@ -16,7 +16,7 @@ try {
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }
-$id_event = $all_lines[$index]['idEvent'];
+//$id_event = $all_lines[$index]['idEvent'];
 
 // fonction qui génère le code html des post-it utilisés dans la page App.php
 function get_event_case($all_lines, $index) {

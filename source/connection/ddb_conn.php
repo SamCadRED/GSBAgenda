@@ -3,8 +3,8 @@
 
     $host = "localhost";
     $db = "gsb_agenda";
-    $username = "";
-    $password = "";
+    $username = "root";
+    $password = "root";
 
     $dsn = "mysql:host=".$host.";dbname=".$db;
     try {
